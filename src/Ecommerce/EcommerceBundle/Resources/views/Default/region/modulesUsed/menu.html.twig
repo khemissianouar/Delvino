@@ -1,0 +1,6 @@
+{% for region in regions %}
+
+    <li>
+        <a href="{{ path('regionProduits',{'region':region.id})}}">{{ region.nom }}</a>
+    </li>
+{% endfor %}

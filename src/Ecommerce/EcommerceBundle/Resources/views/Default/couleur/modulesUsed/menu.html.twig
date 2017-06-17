@@ -1,0 +1,6 @@
+{% for couleur in couleurs %}
+
+    <li>
+        <a href="{{ path('couleurProduits',{'couleur':couleur.id})}}">{{ couleur.nom }}</a>
+    </li>
+{% endfor %}

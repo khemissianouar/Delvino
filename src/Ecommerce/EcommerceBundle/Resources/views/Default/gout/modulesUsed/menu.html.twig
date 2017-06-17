@@ -1,0 +1,6 @@
+
+{% for gout in gouts %}
+    <li>
+        <a href="{{ path('goutProduits',{'gout':gout.id})}}">{{ gout.nom }}</a>
+    </li>
+{% endfor %}

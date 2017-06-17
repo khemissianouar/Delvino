@@ -1,0 +1,119 @@
+<section>
+
+      <div class="span3">
+        <div class="left-sidebar">
+          <h2>Category</h2>
+          <div class="panel-group category-products" id="accordian"><!--category-productsr-->
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+
+                  <a data-toggle="collapse" data-parent="#accordian" href="#sportswear">
+                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                  Type
+                  </a>
+                </h4>
+              </div>
+              <div id="sportswear" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul>
+                    {% render(controller('EcommerceBundle:Type:menu')) %}
+
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#mens">
+                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+              Couleur
+                  </a>
+                </h4>
+              </div>
+              <div id="mens" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul>
+                              {% render(controller('EcommerceBundle:couleur:menu')) %}
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+            <div class="panel panel-default">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordian" href="#womens">
+                    <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+              Par Gout
+                  </a>
+                </h4>
+              </div>
+              <div id="womens" class="panel-collapse collapse">
+                <div class="panel-body">
+                  <ul>
+                {% render(controller('EcommerceBundle:gout:menu')) %}
+                  </ul>
+                </div>
+                </div>
+
+
+                <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-parent="#accordian" href="#region">
+                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                  Region
+                      </a>
+                    </h4>
+                  </div>
+                  <div id="region" class="panel-collapse collapse">
+                    <div class="panel-body">
+                      <ul>
+                      {% render(controller('EcommerceBundle:Region:menu')) %}
+
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+        
+
+
+
+
+      </div>  <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordian" href="#alcool">
+                <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+      Alcool
+              </a>
+            </h4>
+</div>
+          <div id="alcool" class="panel-collapse collapse">
+            <div class="panel-body">
+              <ul>
+                {% render(controller('EcommerceBundle:alcool:menu')) %}
+
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+  </div>
+
+          </div><!--/category-productsr-->
+
+
+
+
+        </div>
+      </div>
+
+
+
+</section>

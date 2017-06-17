@@ -1,0 +1,6 @@
+{% for alcool in alcools %}
+
+    <li>
+        <a href="{{ path('alcoolProduits',{'alcool':alcool.id})}}">{{ alcool.nom }}</a>
+    </li>
+{% endfor %}
