@@ -1,7 +1,9 @@
 <?php
 namespace Utilisateurs\UtilisateursBundle\Entity;
+
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="utilisateurs")
@@ -14,12 +16,14 @@ class Utilisateurs extends BaseUser
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
+
     public function __construct()
     {
         parent::__construct();
         $this->commande = new \Doctrine\Common\Collections\ArrayCollection();
-          $this->adresse = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->adresses = new \Doctrine\Common\Collections\ArrayCollection();
     }
+
     /**
      * @ORM\OneToMany(targetEntity="Ecommerce\EcommerceBundle\Entity\commande", mappedBy="utilisateur", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
@@ -30,14 +34,22 @@ class Utilisateurs extends BaseUser
      * @ORM\OneToMany(targetEntity="Ecommerce\EcommerceBundle\Entity\client", mappedBy="utilisateur", cascade={"remove"})
      * @ORM\JoinColumn(nullable=true)
      */
-    private $adresse;
-
+    private $adresses;
 
     /**
-     * Add commande
+     * Get id
      *
-     * @param \Ecommerce\EcommerceBundle\Entity\Commande $commande
+     * @return integer
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Add command
      *
+     * @param \Ecommerce\EcommerceBundle\Entity\commande $commande
      * @return Utilisateurs
      */
     public function addCommande(\Ecommerce\EcommerceBundle\Entity\Commande $commande)
@@ -50,9 +62,9 @@ class Utilisateurs extends BaseUser
     /**
      * Remove commande
      *
-     * @param \Ecommerce\EcommerceBundle\Entity\Commande $commande
+     * @param \Ecommerce\EcommerceBundle\Entity\commande $commande
      */
-    public function removeCommande(\Ecommerce\EcommerceBundle\Entity\Commande $commande)
+    public function removeCommande(\Ecommerce\EcommerceBundle\Entity\Commande $commands)
     {
         $this->commande->removeElement($commande);
     }
@@ -68,36 +80,35 @@ class Utilisateurs extends BaseUser
     }
 
     /**
-     * Add adresse
+     * Add adresses
      *
-     * @param \Ecommerce\EcommerceBundle\Entity\client $adresse
-     *
+     * @param \Ecommerce\EcommerceBundle\Entity\client $adresses
      * @return Utilisateurs
      */
-    public function addAdresse(\Ecommerce\EcommerceBundle\Entity\client $adresse)
+    public function addAdress(\Ecommerce\EcommerceBundle\Entity\client $adresses)
     {
-        $this->adresse[] = $adresse;
+        $this->adresses[] = $adresses;
 
         return $this;
     }
 
     /**
-     * Remove adresse
+     * Remove adresses
      *
-     * @param \Ecommerce\EcommerceBundle\Entity\client $adresse
+     * @param \Ecommerce\EcommerceBundle\Entity\client $adresses
      */
-    public function removeAdresse(\Ecommerce\EcommerceBundle\Entity\client $adresse)
+    public function removeAdress(\Ecommerce\EcommerceBundle\Entity\client $adresses)
     {
-        $this->adresse->removeElement($adresse);
+        $this->adresses->removeElement($adresses);
     }
 
     /**
-     * Get adresse
+     * Get adresses
      *
      * @return \Doctrine\Common\Collections\Collection
      */
-    public function getAdresse()
+    public function getAdresses()
     {
-        return $this->adresse;
+        return $this->adresses;
     }
 }

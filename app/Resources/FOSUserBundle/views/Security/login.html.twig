@@ -7,43 +7,40 @@
     <div>{{ error|trans }}</div>
 {% endif %}
 <div class="row">
+    <div class="span12">
+        <h2>Connexion</h2>
+        <div id="collapseOne" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                <div class="span4">
+                    <h4>Pas encore inscrit ?</h4>
+                    <em>
+                        nous vous invitons à vous inscrire<br />
+                        afin de passer votre commande et de manger équilibré.
+                    </em>
+                    <br /><br />
+                    <a href="{{ path('fos_user_registration_register') }}" class="btn btn-primary">S'inscrire</a>
 
+                </div>
 
-<section id="form"><!--form-->
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-4 col-sm-offset-1">
-					<div class="login-form"><!--login form-->
-						<h2>Connexion</h2>
-						<form action="{{ path("fos_user_security_check") }}" method="post">
-            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
+                <div class="span4 offset2">
+                    <h4>Connexion</h4>
+                    <form action="{{ path("fos_user_security_check") }}" method="post">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
 
-      <label for="username">{{ 'security.login.username'|trans }}</label>
-							<input type="text" placeholder="Non" />
-  <label for="username">{{ 'security.login.password'|trans }}</label>
-							<input type="password" placeholder="Mot de passe" />
-							<span>
-								<input type="checkbox" class="checkbox">
-								Keep me signed in
-							</span>
-							<button type="submit" class="btn btn-default">{{ 'security.login.submit'|trans }}</button>
-						</form>
-            <div class="span10">
-                <a href="{{ path('fos_user_resetting_request') }}">Mot de passe perdu ?</a>
+                    <label for="username">{{ 'security.login.username'|trans }}</label>
+                    <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" />
+
+                    <label for="password">{{ 'security.login.password'|trans }}</label>
+                    <input type="password" id="password" name="_password" required="required" />
+                    <br />
+                    <input class="btn btn-primary" type="submit" value="{{ 'security.login.submit'|trans }}" />
+                    </form>
+                </div>
+                <div class="span10">
+                    <a href="{{ path('fos_user_resetting_request') }}">Mot de passe perdu ?</a>
+                </div>
             </div>
-					</div><!--/login form-->
-				</div>
-				<div class="col-sm-1">
-					<h2 class="or">OU</h2>
-				</div>
-				<div class="col-sm-4">
-					<div class="signup-form"><!--sign up form-->
-						<h2>Pas encore inscrit </h2>
-
-          
-					</div><!--/sign up form-->
-				</div>
-			</div>
-		</div>
-	</section><!--/form-->
+        </div>
+    </div>
+</div>
 {% endblock fos_user_content %}

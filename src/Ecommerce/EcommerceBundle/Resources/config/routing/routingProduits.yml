@@ -1,0 +1,30 @@
+produits:
+    pattern:  /
+    defaults: { _controller: EcommerceBundle:Produits:produits }
+
+presentation:
+    pattern:  /produit/{id}
+    defaults: { _controller: EcommerceBundle:Produits:presentation }
+typeProduits:
+    pattern:  /type/{type}
+    defaults: { _controller: EcommerceBundle:Produits:produits }
+
+regionProduits:
+    pattern:  /region/{region}
+    defaults: { _controller: EcommerceBundle:Produits:region }
+
+couleurProduits:
+    pattern:  /couleur/{couleur}
+    defaults: { _controller: EcommerceBundle:Produits:couleur }
+
+goutProduits:
+    pattern:  /gout/{gout}
+    defaults: { _controller: EcommerceBundle:Produits:gout }
+
+alcoolProduits:
+    pattern:  /alcool/{alcool}
+    defaults: { _controller: EcommerceBundle:Produits:alcool }
+
+rechercheProduits:
+    pattern:  /recherche
+    defaults: { _controller: EcommerceBundle:Produits:rechercheTraitement }

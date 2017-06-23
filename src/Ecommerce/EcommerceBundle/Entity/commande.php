@@ -20,19 +20,27 @@ class commande
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
     /**
      * @ORM\ManyToOne(targetEntity="Utilisateurs\UtilisateursBundle\Entity\Utilisateurs", inversedBy="commande")
      * @ORM\JoinColumn(nullable=true)
      */
-    private $utilisateur;
 
+    private $utilisateur;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="valide", type="boolean")
+     * @ORM\Column(name="valider", type="boolean")
      */
-    private $valide;
+    private $valider;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
 
     /**
      * @var integer
@@ -42,12 +50,11 @@ class commande
     private $reference;
 
     /**
-     * @var \DateTime
+     * @var array
      *
-     * @ORM\Column(name="date", type="datetime")
+     * @ORM\Column(name="commande", type="array")
      */
-    private $date;
-
+    private $commande;
 
 
     /**
@@ -61,59 +68,33 @@ class commande
     }
 
     /**
-     * Set valide
+     * Set valider
      *
-     * @param boolean $valide
-     *
-     * @return commade
+     * @param boolean $valider
+     * @return commande
      */
-    public function setValide($valide)
+    public function setValider($valider)
     {
-        $this->valide = $valide;
+        $this->valider = $valider;
 
         return $this;
     }
 
     /**
-     * Get valide
+     * Get valider
      *
      * @return boolean
      */
-    public function getValide()
+    public function getValider()
     {
-        return $this->valide;
-    }
-
-    /**
-     * Set reference
-     *
-     * @param integer $reference
-     *
-     * @return commade
-     */
-    public function setReference($reference)
-    {
-        $this->reference = $reference;
-
-        return $this;
-    }
-
-    /**
-     * Get reference
-     *
-     * @return integer
-     */
-    public function getReference()
-    {
-        return $this->reference;
+        return $this->valider;
     }
 
     /**
      * Set date
      *
      * @param \DateTime $date
-     *
-     * @return commade
+     * @return commande
      */
     public function setDate($date)
     {
@@ -133,10 +114,55 @@ class commande
     }
 
     /**
+     * Set reference
+     *
+     * @param integer $reference
+     * @return commande
+     */
+    public function setReference($reference)
+    {
+        $this->reference = $reference;
+
+        return $this;
+    }
+
+    /**
+     * Get reference
+     *
+     * @return integer
+     */
+    public function getReference()
+    {
+        return $this->reference;
+    }
+
+    /**
+     * Set commande
+     *
+     * @param array $commande
+     * @return commande
+     */
+    public function setCommande($commande)
+    {
+        $this->commande = $commande;
+
+        return $this;
+    }
+
+    /**
+     * Get commande
+     *
+     * @return array
+     */
+    public function getCommande()
+    {
+        return $this->commande;
+    }
+
+    /**
      * Set utilisateur
      *
      * @param \Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur
-     *
      * @return commande
      */
     public function setUtilisateur(\Utilisateurs\UtilisateursBundle\Entity\Utilisateurs $utilisateur = null)

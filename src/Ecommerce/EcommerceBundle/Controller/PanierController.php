@@ -4,8 +4,8 @@ namespace Ecommerce\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Ecommerce\EcommerceBundle\Form\UtilisateursAdressesType;
-use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
+use Ecommerce\EcommerceBundle\Form\clientType;
+use Ecommerce\EcommerceBundle\Entity\client;
 
 class PanierController extends Controller
 {
@@ -75,7 +75,7 @@ class PanierController extends Controller
     public function adresseSuppressionAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $entity = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($id);
+              $entity = $em->getRepository('EcommerceBundle:client')->find($id);
 
         if ($this->container->get('security.context')->getToken()->getUser() != $entity->getUtilisateur() || !$entity)
             return $this->redirect ($this->generateUrl ('livraison'));
@@ -134,8 +134,8 @@ class PanierController extends Controller
             $this->setLivraisonOnSession();
 
         $em = $this->getDoctrine()->getManager();
-        $prepareCommande = $this->forward('EcommerceBundle:Commandes:prepareCommande');
-        $commande = $em->getRepository('EcommerceBundle:Commandes')->find($prepareCommande->getContent());
+        $prepareCommande = $this->forward('EcommerceBundle:commande:prepareCommande');
+        $commande = $em->getRepository('EcommerceBundle:commande')->find($prepareCommande->getContent());
 
         return $this->render('EcommerceBundle:Default:panier/layout/validation.html.twig', array('commande' => $commande));
     }

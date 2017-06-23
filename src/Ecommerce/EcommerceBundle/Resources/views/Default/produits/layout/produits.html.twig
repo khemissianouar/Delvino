@@ -1,15 +1,21 @@
 {% extends "::layout/layout.html.twig" %}
 
 {% block body %}
-
-
-        <div class="span3">
-            {% include '::modulesUsed/navigation.html.twig' %}
-        </div>
-
 <div class="container">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="left-sidebar">
+        {% include '::modulesUsed/navigation.html.twig' %}
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {% include 'UtilisateursBundle:Default:modulesUsed/utilisateursConnecte.html.twig' %}
+        {% else %}
+            {% include 'UtilisateursBundle:Default:modulesUsed/utilisateurs.html.twig' %}
+        {% endif %}
+        {% render(controller('EcommerceBundle:Panier:menu')) %}
+    </div>
+    </div>
 
-<div class="span9">
+<div class="col-sm-9">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
             {% for produit in produits %}
@@ -49,4 +55,6 @@
 						</ul>
 					</div><!--features_items-->
 				</div>
+        </div>
+        </div>
 {% endblock %}

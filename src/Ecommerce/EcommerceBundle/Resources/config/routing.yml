@@ -1,48 +1,11 @@
-supprimer:
-    pattern:  /supprimer/{id}
-    defaults: { _controller: EcommerceBundle:Panier:supprimer }
+routingPanier:
+  resource: "@EcommerceBundle/Resources/config/routing/routingPanier.yml"
+  prefix: /panier
 
-ajouter:
-    pattern:  /ajouter/{id}
-    defaults: { _controller: EcommerceBundle:Panier:ajouter }
-
-
-produits:
-    pattern:  /
-    defaults: { _controller: EcommerceBundle:Produits:produits }
-
-presentation:
-    pattern:  /produit/{id}
-    defaults: { _controller: EcommerceBundle:Produits:presentation }
-
-panier:
-    pattern:  /panier
-    defaults: { _controller: EcommerceBundle:Panier:panier }
-
-livraison:
-    pattern:  /panier/livraison
-    defaults: { _controller: EcommerceBundle:Panier:livraison }
-
-validation:
-    pattern:  /panier/validation
-    defaults: { _controller: EcommerceBundle:Panier:validation }
-
-typeProduits:
-    pattern:  /type/{type}
-    defaults: { _controller: EcommerceBundle:Produits:type }
-
-regionProduits:
-    pattern:  /region/{region}
-    defaults: { _controller: EcommerceBundle:Produits:region }
-
-couleurProduits:
-    pattern:  /couleur/{couleur}
-    defaults: { _controller: EcommerceBundle:Produits:couleur }
-
-goutProduits:
-    pattern:  /gout/{gout}
-    defaults: { _controller: EcommerceBundle:Produits:gout }
-
-alcoolProduits:
-    pattern:  /alcool/{alcool}
-    defaults: { _controller: EcommerceBundle:Produits:alcool }
+routingProduits:
+  resource: "@EcommerceBundle/Resources/config/routing/routingProduits.yml"
+  prefix: /
+  
+routingCommandes:
+  resource: "@EcommerceBundle/Resources/config/routing/routingCommandes.yml"
+  prefix: /
