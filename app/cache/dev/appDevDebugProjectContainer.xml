@@ -21,6 +21,7 @@
       <parameter key="FOSUserBundle">FOS\UserBundle\FOSUserBundle</parameter>
       <parameter key="UtilisateursBundle">Utilisateurs\UtilisateursBundle\UtilisateursBundle</parameter>
       <parameter key="DoctrineFixturesBundle">Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle</parameter>
+      <parameter key="KnpPaginatorBundle">Knp\Bundle\PaginatorBundle\KnpPaginatorBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
       <parameter key="SensioGeneratorBundle">Sensio\Bundle\GeneratorBundle\SensioGeneratorBundle</parameter>
@@ -90,6 +91,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\xampp\htdocs\Delvino\vendor\doctrine\doctrine-fixtures-bundle</parameter>
         <parameter key="namespace">Doctrine\Bundle\FixturesBundle</parameter>
+      </parameter>
+      <parameter key="KnpPaginatorBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle</parameter>
+        <parameter key="namespace">Knp\Bundle\PaginatorBundle</parameter>
       </parameter>
       <parameter key="WebProfilerBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -673,6 +679,12 @@
       <parameter>ResetPassword</parameter>
       <parameter>Default</parameter>
     </parameter>
+    <parameter key="knp_paginator.class">Knp\Component\Pager\Paginator</parameter>
+    <parameter key="knp_paginator.helper.processor.class">Knp\Bundle\PaginatorBundle\Helper\Processor</parameter>
+    <parameter key="knp_paginator.template.pagination">KnpPaginatorBundle:Pagination:twitter_bootstrap_pagination.html.twig</parameter>
+    <parameter key="knp_paginator.template.filtration">KnpPaginatorBundle:Pagination:filtration.html.twig</parameter>
+    <parameter key="knp_paginator.template.sortable">KnpPaginatorBundle:Pagination:sortable_link.html.twig</parameter>
+    <parameter key="knp_paginator.page_range">5</parameter>
     <parameter key="web_profiler.controller.profiler.class">Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController</parameter>
     <parameter key="web_profiler.controller.router.class">Symfony\Bundle\WebProfilerBundle\Controller\RouterController</parameter>
     <parameter key="web_profiler.controller.exception.class">Symfony\Bundle\WebProfilerBundle\Controller\ExceptionController</parameter>
@@ -1037,6 +1049,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.da.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.da.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.da.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.da.xliff</argument>
           </argument>
           <argument key="de" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.de.xlf</argument>
@@ -1044,6 +1057,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.de.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.de.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.de.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.de.xliff</argument>
           </argument>
           <argument key="el" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.el.xlf</argument>
@@ -1058,6 +1072,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.en.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.en.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.en.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.en.xliff</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.es.xlf</argument>
@@ -1065,6 +1080,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.es.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.es.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.es.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.es.xliff</argument>
           </argument>
           <argument key="et" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.et.xlf</argument>
@@ -1099,6 +1115,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.fr.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.fr.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\src\Utilisateurs\UtilisateursBundle/Resources/translations\messages.fr.xlf</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.fr.xliff</argument>
           </argument>
           <argument key="gl" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.gl.xlf</argument>
@@ -1136,6 +1153,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.id.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.id.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.id.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.id.xliff</argument>
           </argument>
           <argument key="it" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.it.xlf</argument>
@@ -1143,6 +1161,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.it.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.it.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.it.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.it.xliff</argument>
           </argument>
           <argument key="ja" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ja.xlf</argument>
@@ -1163,6 +1182,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.lt.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.lt.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.lt.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.lt.xliff</argument>
           </argument>
           <argument key="lv" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.lv.xlf</argument>
@@ -1181,6 +1201,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.nl.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.nl.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nl.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.nl.xliff</argument>
           </argument>
           <argument key="nn" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.nn.xlf</argument>
@@ -1196,6 +1217,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.pl.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.pl.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.pl.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.pl.xliff</argument>
           </argument>
           <argument key="pt" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.pt.xlf</argument>
@@ -1216,6 +1238,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.ro.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ro.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ro.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.ro.xliff</argument>
           </argument>
           <argument key="ru" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.ru.xlf</argument>
@@ -1223,6 +1246,7 @@
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Security\Core/Resources/translations\security.ru.xlf</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ru.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ru.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.ru.xliff</argument>
           </argument>
           <argument key="sk" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Component\Validator/Resources/translations\validators.sk.xlf</argument>
@@ -1307,10 +1331,14 @@
           <argument key="ky" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.ky.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.ky.yml</argument>
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.ky.xliff</argument>
           </argument>
           <argument key="nb" type="collection">
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\FOSUserBundle.nb.yml</argument>
             <argument>C:\xampp\htdocs\Delvino\vendor\friendsofsymfony\user-bundle/Resources/translations\validators.nb.yml</argument>
+          </argument>
+          <argument key="sw" type="collection">
+            <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/translations\KnpPaginatorBundle.sw.xliff</argument>
           </argument>
         </argument>
       </argument>
@@ -2205,6 +2233,14 @@
         </argument>
         <argument>0</argument>
       </call>
+      <call method="addListenerService">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument>knp_paginator.subscriber.sliding_pagination</argument>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
       <call method="addSubscriberService">
         <argument>response_listener</argument>
         <argument>Symfony\Component\HttpKernel\EventListener\ResponseListener</argument>
@@ -2313,6 +2349,22 @@
         <argument>web_profiler.debug_toolbar</argument>
         <argument>Symfony\Bundle\WebProfilerBundle\EventListener\WebDebugToolbarListener</argument>
       </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.paginate</argument>
+        <argument>Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.sortable</argument>
+        <argument>Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.filtration</argument>
+        <argument>Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber</argument>
+      </call>
+      <call method="addSubscriberService">
+        <argument>knp_paginator.subscriber.sliding_pagination</argument>
+        <argument>Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber</argument>
+      </call>
     </service>
     <service id="debug.controller_resolver" class="Symfony\Component\HttpKernel\Controller\TraceableControllerResolver">
       <argument type="service">
@@ -2350,7 +2402,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>594d3f98081608.56821894</argument>
+            <argument>594e8c2ab26549.68353652</argument>
           </service>
         </argument>
         <argument type="service">
@@ -2653,7 +2705,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>594d3f98081608.56821894</argument>
+            <argument>594e8c2ab26549.68353652</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2997,6 +3049,9 @@
       </call>
       <call method="addExtension">
         <argument type="service" id="montanttva"/>
+      </call>
+      <call method="addExtension">
+        <argument type="service" id="knp_paginator.twig.extension.pagination"/>
       </call>
       <call method="addExtension">
         <argument type="service">
@@ -3450,6 +3505,10 @@
       <argument type="service" id="security.token_storage" on-invalid="null"/>
       <argument type="service" id="security.authorization_checker" on-invalid="null"/>
     </service>
+    <service id="setnewreference" class="Ecommerce\EcommerceBundle\Services\GetReference">
+      <argument type="service" id="security.context"/>
+      <argument type="service" id="doctrine.orm.default_entity_manager"/>
+    </service>
     <service id="tva" class="Ecommerce\EcommerceBundle\Twig\Extension\TvaExtension">
       <tag name="twig.extension"/>
     </service>
@@ -3561,6 +3620,46 @@
       <tag name="kernel.event_subscriber"/>
       <argument type="service" id="router"/>
       <argument>86400</argument>
+    </service>
+    <service id="knp_paginator" class="Knp\Component\Pager\Paginator">
+      <argument type="service" id="debug.event_dispatcher"/>
+      <call method="setDefaultPaginatorOptions">
+        <argument type="collection">
+          <argument key="pageParameterName">page</argument>
+          <argument key="sortFieldParameterName">sort</argument>
+          <argument key="sortDirectionParameterName">direction</argument>
+          <argument key="filterFieldParameterName">filterField</argument>
+          <argument key="filterValueParameterName">filterValue</argument>
+          <argument key="distinct">true</argument>
+        </argument>
+      </call>
+    </service>
+    <service id="knp_paginator.subscriber.paginate" class="Knp\Component\Pager\Event\Subscriber\Paginate\PaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sortable" class="Knp\Component\Pager\Event\Subscriber\Sortable\SortableSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.filtration" class="Knp\Component\Pager\Event\Subscriber\Filtration\FiltrationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+    </service>
+    <service id="knp_paginator.subscriber.sliding_pagination" class="Knp\Bundle\PaginatorBundle\Subscriber\SlidingPaginationSubscriber">
+      <tag name="knp_paginator.subscriber"/>
+      <tag name="kernel.event_listener" event="kernel.request" method="onKernelRequest"/>
+      <argument type="collection">
+        <argument key="defaultPaginationTemplate">KnpPaginatorBundle:Pagination:twitter_bootstrap_pagination.html.twig</argument>
+        <argument key="defaultSortableTemplate">KnpPaginatorBundle:Pagination:sortable_link.html.twig</argument>
+        <argument key="defaultFiltrationTemplate">KnpPaginatorBundle:Pagination:filtration.html.twig</argument>
+        <argument key="defaultPageRange">5</argument>
+      </argument>
+    </service>
+    <service id="knp_paginator.helper.processor" class="Knp\Bundle\PaginatorBundle\Helper\Processor">
+      <argument type="service" id="router"/>
+      <argument type="service" id="translator"/>
+    </service>
+    <service id="knp_paginator.twig.extension.pagination" class="Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension">
+      <tag name="twig.extension"/>
+      <argument type="service" id="knp_paginator.helper.processor"/>
     </service>
     <service id="web_profiler.controller.profiler" class="Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController">
       <argument type="service" id="router" on-invalid="null"/>
@@ -4004,6 +4103,10 @@
       <call method="addPath">
         <argument>C:\xampp\htdocs\Delvino\src\Utilisateurs\UtilisateursBundle/Resources/views</argument>
         <argument>Utilisateurs</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\xampp\htdocs\Delvino\vendor\knplabs\knp-paginator-bundle/Resources/views</argument>
+        <argument>KnpPaginator</argument>
       </call>
       <call method="addPath">
         <argument>C:\xampp\htdocs\Delvino\vendor\symfony\symfony\src\Symfony\Bundle\WebProfilerBundle/Resources/views</argument>

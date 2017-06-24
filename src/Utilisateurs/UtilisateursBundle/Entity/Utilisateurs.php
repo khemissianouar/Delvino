@@ -5,7 +5,7 @@ use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Utilisateurs\UtilisateursBundle\Repository\UtilisateursRepository")
  * @ORM\Table(name="utilisateurs")
  */
 class Utilisateurs extends BaseUser
@@ -47,12 +47,12 @@ class Utilisateurs extends BaseUser
     }
 
     /**
-     * Add command
+     * Add commande
      *
      * @param \Ecommerce\EcommerceBundle\Entity\commande $commande
      * @return Utilisateurs
      */
-    public function addCommande(\Ecommerce\EcommerceBundle\Entity\Commande $commande)
+    public function addCommande(\Ecommerce\EcommerceBundle\Entity\commande $commande)
     {
         $this->commande[] = $commande;
 
@@ -62,9 +62,9 @@ class Utilisateurs extends BaseUser
     /**
      * Remove commande
      *
-     * @param \Ecommerce\EcommerceBundle\Entity\commande $commande
+     * @param \Ecommerce\EcommerceBundle\Entity\Commande $commande
      */
-    public function removeCommande(\Ecommerce\EcommerceBundle\Entity\Commande $commands)
+    public function removeCommande(\Ecommerce\EcommerceBundle\Entity\Commande $commande)
     {
         $this->commande->removeElement($commande);
     }

@@ -16,6 +16,7 @@
     </div>
 
 <div class="col-sm-9">
+  {% if produits|length != 0 %}
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">Features Items</h2>
             {% for produit in produits %}
@@ -47,12 +48,14 @@
             {% endfor %}
 			</div>
 
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">&raquo;</a></li>
-						</ul>
+
+              <div class="navigation">
+                  {{ knp_pagination_render(produits) }}
+              </div>
+
+          {% else %}
+              Aucun produit
+          {% endif %}
 					</div><!--features_items-->
 				</div>
         </div>

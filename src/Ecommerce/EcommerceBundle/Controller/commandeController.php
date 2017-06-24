@@ -4,8 +4,8 @@ namespace Ecommerce\EcommerceBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
-use Ecommerce\EcommerceBundle\Entity\client;
-use Ecommerce\EcommerceBundle\Entity\Commande;
+use Ecommerce\EcommerceBundle\Entity\UtilisateursAdresses;
+use Ecommerce\EcommerceBundle\Entity\commande;
 use Ecommerce\EcommerceBundle\Entity\Produits;
 
 class commandeController extends Controller
@@ -19,10 +19,10 @@ class commandeController extends Controller
         $panier = $session->get('panier');
         $commande = array();
         $totalHT = 0;
-        $totalTTC = 0;
+        $totalTVA = 0;
 
-        $facturation = $em->getRepository('EcommerceBundle:client')->find($adresse['facturation']);
-        $livraison = $em->getRepository('EcommerceBundle:client')->find($adresse['livraison']);
+        $facturation = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['facturation']);
+        $livraison = $em->getRepository('EcommerceBundle:UtilisateursAdresses')->find($adresse['livraison']);
         $produits = $em->getRepository('EcommerceBundle:Produits')->findArray(array_keys($session->get('panier')));
 
         foreach($produits as $produit)
@@ -30,12 +30,13 @@ class commandeController extends Controller
             $prixHT = ($produit->getPrix() * $panier[$produit->getId()]);
             $prixTTC = ($produit->getPrix() * $panier[$produit->getId()] / $produit->getTva()->getMultiplicate());
             $totalHT += $prixHT;
-            $totalTTC += $prixTTC;
 
             if (!isset($commande['tva']['%'.$produit->getTva()->getValeur()]))
                 $commande['tva']['%'.$produit->getTva()->getValeur()] = round($prixTTC - $prixHT,2);
             else
                 $commande['tva']['%'.$produit->getTva()->getValeur()] += round($prixTTC - $prixHT,2);
+
+            $totalTVA += round($prixTTC - $prixHT,2);
 
             $commande['produit'][$produit->getId()] = array('reference' => $produit->getNom(),
                                                             'quantite' => $panier[$produit->getId()],
@@ -50,7 +51,6 @@ class commandeController extends Controller
                                     'cp' => $livraison->getCp(),
                                     'ville' => $livraison->getVille(),
                                     'pays' => $livraison->getPays());
-                                    //'complement' => $livraison->getComplement());
 
         $commande['facturation'] = array('prenom' => $facturation->getPrenom(),
                                     'nom' => $facturation->getNom(),
@@ -59,10 +59,9 @@ class commandeController extends Controller
                                     'cp' => $facturation->getCp(),
                                     'ville' => $facturation->getVille(),
                                     'pays' => $facturation->getPays());
-                                    //'complement' => $facturation->getComplement());
 
         $commande['prixHT'] = round($totalHT,2);
-        $commande['prixTTC'] = round($totalTTC,2);
+        $commande['prixTTC'] = round($totalHT + $totalTVA,2);
         $commande['token'] = bin2hex($generator->nextBytes(20));
 
         return $commande;
@@ -74,7 +73,7 @@ class commandeController extends Controller
         $em = $this->getDoctrine()->getManager();
 
         if (!$session->has('commande'))
-            $commande = new commande();
+            $commande = new Commande();
         else
             $commande = $em->getRepository('EcommerceBundle:commande')->find($session->get('commande'));
 
@@ -100,13 +99,13 @@ class commandeController extends Controller
     public function validationCommandeAction($id)
     {
         $em = $this->getDoctrine()->getManager();
-        $commande = $em->getRepository('EcommerceBundle:commande')->find($id);
+        $commande = $em->getRepository('EcommerceBundle:Commande')->find($id);
 
         if (!$commande || $commande->getValider() == 1)
             throw $this->createNotFoundException('La commande n\'existe pas');
 
         $commande->setValider(1);
-        $commande->setReference(1); //Service
+        $commande->setReference($this->container->get('setNewReference')->reference()); //Service
         $em->flush();
 
         $session = $this->getRequest()->getSession();
@@ -115,6 +114,6 @@ class commandeController extends Controller
         $session->remove('commande');
 
         $this->get('session')->getFlashBag()->add('success','Votre commande est validé avec succès');
-        return $this->redirect($this->generateUrl('produits'));
+        return $this->redirect($this->generateUrl('factures'));
     }
 }

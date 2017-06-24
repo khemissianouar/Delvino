@@ -10,23 +10,24 @@ class ProduitsController extends Controller
 {
   public function produitsAction(Type $type = null)
   {
-      $session = $this->getRequest()->getSession();
-      $em = $this->getDoctrine()->getManager();
+    $session = $this->getRequest()->getSession();
+  $em = $this->getDoctrine()->getManager();
 
-      if ($type != null)
-          $produits = $em->getRepository('EcommerceBundle:Produits')->bytype($type);
-      else
-          $produits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible' => 1));
+  if ($type != null)
+      $findProduits = $em->getRepository('EcommerceBundle:Produits')->bytype($type);
+  else
+      $findProduits = $em->getRepository('EcommerceBundle:Produits')->findBy(array('disponible' => 1));
 
-      if ($session->has('panier'))
-          $panier = $session->get('panier');
-      else
-          $panier = false;
+  if ($session->has('panier'))
+      $panier = $session->get('panier');
+  else
+      $panier = false;
 
+  $produits = $this->get('knp_paginator')->paginate($findProduits,$this->get('request')->query->get('page', 1),3);
 
-      return $this->render('EcommerceBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits,
-                                                                                               'panier' => $panier));
-  }
+  return $this->render('EcommerceBundle:Default:produits/layout/produits.html.twig', array('produits' => $produits,
+                                                                                           'panier' => $panier));
+}
   public function typeAction($type)
  {
      $em = $this->getDoctrine()->getManager();
